@@ -42,8 +42,10 @@ class yakıtHesapla(QWidget):
         try:
             gYol = int(self.yoldeger.text())
             yFiyat = int(self.yakıtdeger.text())
-            tüketilen = int(self.kmDeger.text())
-            ortalama = (yFiyat * gYol)/100
+            tuketilen = int(self.kmDeger.text())
+            #ortalama = (yFiyat * gYol)/100
+            toplam_yakit = (tuketilen * gYol)/100
+            ortalama = toplam_yakit * yFiyat
         except:
             self.sonucDeger.setText('<span style="color: red;">Tam sayi giriniz!</span>')
             return
