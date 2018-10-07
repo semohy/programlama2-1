@@ -5,8 +5,9 @@
 pyqt.py  Ödev kodlarını içermektedir
 pyqt2.py Araştırmam sonucunda derste anlatılandan farklı bir method ile tasarladığım aynı programdır.
 
-<b>pyqt.py Ekran Görüntüsü </b>
+<b>pyqt.py Ekran Görüntüsü </b> 
 <img src="/caky.PNG" >
+</n>
 <b>pyqt2.py Ekran Görüntüsü </b>
 <img src="/caky2.PNG" >
 
