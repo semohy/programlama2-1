@@ -7,7 +7,7 @@ pyqt2.py Araştırmam sonucunda derste anlatılandan farklı bir method ile tasa
 
 <b>pyqt.py Ekran Görüntüsü </b> 
 <img src="/caky.PNG" >
-</n>
+\n
 <b>pyqt2.py Ekran Görüntüsü </b>
 <img src="/caky2.PNG" >
 
