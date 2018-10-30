@@ -8,7 +8,7 @@ class AnaPencere(QMainWindow):
         self.setWindowTitle("logo muhasebe uygulamaları")
         self.setGeometry(200,200,800,400)
         self.menuEkleme()
-        self.form_widget=FromWidget(self)
+        self.form_widget=FormWidget(self)
         self.setCentralWidget(self.form_widget)
         
     def menuEkleme(self):
@@ -29,20 +29,20 @@ class AnaPencere(QMainWindow):
 
 class FormWidget(QWidget):
     def __init__(self,p=None):
-        super(FromWidget,self).__init(p)
+        super(FormWidget,self).__init__(p)
         frame=QFrame()
         frame.setFrameStyle(QFrame.Panel)
         frame2=QFrame()
         frame2.setFrameStyle(QFrame.Panel)
 
-        fisWidgwet=QWidget()
+        fisWidget=QWidget()
         fisNo=QLineEdit()
         fisTarih=QLineEdit()
         fisGetir=QPushButton()
-        fromLayout=QFromLayout()
-        fromLayout.addRow("fiş no:",fisNo)
-        fromLayout.addRow("fiş tarihi:",fisTarih)
-        fisWidget.setLayout(fromLayout)
+        formLayout=QFormLayout()
+        formLayout.addRow("fiş no:",fisNo)
+        formLayout.addRow("fiş tarihi:",fisTarih)
+        fisWidget.setLayout(formLayout)
         fisWidget.show()
 
         dockWidget=QDockWidget("fiş no ya göre göster",self)
@@ -54,18 +54,18 @@ class FormWidget(QWidget):
         frame.setLayout(izgara)
 
         yatay=QGridLayout()
-        yatay.addWidget(izgara)
+        yatay.addWidget(frame)
         yatay.setAlignment(Qt.AlignLeft)
 
         ozelKodWidget=QWidget()
         ozelKod=QLineEdit()
         yetkiKod=QLineEdit()
         ozelKodGoster=QPushButton("göster")
-        fromLayout2=QFromLayout()
-        fromLayout2.addRow("özel kod:",ozelKod)
-        fromLayout2.addRow("yetki kod",yetkiKod)
-        fromLayout2.addRow(ozelKodGoster)
-        ozelKodWidget.setLayout(fromLayout2)
+        formLayout2=QFormLayout()
+        formLayout2.addRow("özel kod:",ozelKod)
+        formLayout2.addRow("yetki kod",yetkiKod)
+        formLayout2.addRow(ozelKodGoster)
+        ozelKodWidget.setLayout(formLayout2)
         ozelKodWidget.show()
         
 uyg=QApplication(sys.argv)
