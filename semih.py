@@ -30,11 +30,10 @@ class AnaPencere(QMainWindow):
 class FormWidget(QWidget):
     def __init__(self,p=None):
         super(FormWidget,self).__init__(p)
+        
         frame=QFrame()
         frame.setFrameStyle(QFrame.Panel)
-        frame2=QFrame()
-        frame2.setFrameStyle(QFrame.Panel)
-
+        
         fisWidget=QWidget()
         fisNo=QLineEdit()
         fisTarih=QLineEdit()
@@ -53,9 +52,9 @@ class FormWidget(QWidget):
         izgara.addWidget(dockWidget)
         frame.setLayout(izgara)
 
-        yatay=QGridLayout()
-        yatay.addWidget(frame)
-        yatay.setAlignment(Qt.AlignLeft)
+        #1.bolme sağ kutucuk
+        frame2=QFrame()
+        frame2.setFrameStyle(QFrame.Panel)
 
         ozelKodWidget=QWidget()
         ozelKod=QLineEdit()
@@ -65,8 +64,48 @@ class FormWidget(QWidget):
         formLayout2.addRow("özel kod:",ozelKod)
         formLayout2.addRow("yetki kod",yetkiKod)
         formLayout2.addRow(ozelKodGoster)
+        
         ozelKodWidget.setLayout(formLayout2)
         ozelKodWidget.show()
+
+        dockWidget2=QDockWidget("fiş no ya göre göster",self)
+        dockWidget2.setFeatures(dockWidget.NoDockWidgetFeatures)
+        dockWidget2.setWidget(ozelKodWidget)
+
+        izgara2=QGridLayout()
+        izgara2.addWidget(dockWidget2)
+        frame2.setLayout(izgara2)
+
+        yatay=QHBoxLayout()
+        yatay.addWidget(frame)
+        yatay.addWidget(frame2)
+        yatay.setAlignment(Qt.AlignLeft)
+
+        
+
+
+        #tablo
+        izgara3=QGridLayout()
+
+        aciklama=QLineEdit()
+        
+        tablo=QTableWidget()
+        tablo.resize(600,250)
+        tablo.setRowCount(5)
+        tablo.setColumnCount(6)
+        tablo.setHorizontalHeaderLabels(["a","b","c","d","e","f"])
+        tablo.show()
+        
+        izgara3.addWidget(tablo)
+        izgara3.addWidget(aciklama)
+
+        dikey=QVBoxLayout()
+        dikey.addLayout(yatay)
+        dikey.addLayout(izgara3)
+
+        self.setLayout(dikey)
+        self.setGeometry(0,0,100,100)
+        
         
 uyg=QApplication(sys.argv)
 pencere=AnaPencere()
